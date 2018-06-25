@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <title>VRMeeting - Overview</title>
+    <body>
+        <h1>VRMeeting - Overview - <a href="../index.html">Return to Index</a></h1>
+        <hr>
+        <h2>Components</h2>
+            <ul>
+                <li><b>VRMeeting App</b> - The overall app that runs on a user's mobile device. It includes the Android App and the Unity App</li>
+                    <ul>
+                        <li><b>Android App</b> - The user interface in the App that handles login, meeting creation and joining a meeting. When joining a meeting the Android App will launch the Unity App</li>
+                        <li><b>Unity App</b> - The 3D VR experience displayed when the user is participating in a meeting. When a user leaves a meeting, the Android App is relaunched</li>
+                    </ul>
+                <li><b>Data Server</b> - Describes the overall server which handles VRMeeting and user data such as user accounts and meeting files</li>
+                    <ul>
+                        <li><b>Web Server</b> - A HTTP server which handles:</li>
+                            <ul>
+                                <li>User Creation</li>
+                                <li>User Information Retrieval</li>
+                                <li>User Authentication</li>
+                                <li>Meeting Creation</li>
+                                <li>Meeting Information Retrieval</li>
+                                <li>Server Information Retrieval</li>
+                                <li>Meeting File Upload</li>
+                            </ul>
+                        <li><b>File Server</b> - Responsible for making files available to users in meetings</li>
+                    </ul>
+                <li><b>Host Server</b> - Responsible for 'hosting' meetings between users, acting as an indirect method of communication between clients using a topic-based <a href="https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern" target="_blank" title="Wikipedia - Publish–subscribe pattern">Publish-subscriber Pattern</a></li>
+            </ul>
+        <hr>
+        <h2>Overall Diagram</h2>
+        <img src="../images/Overview.jpg" alt="Overview of System Architecture" width = "600" height = "600">
+        <hr>
+        <h2>How it works</h2>
+        <h4>The Data Server</h4>
+        <p>The aim of this is just to provide a high-level overview of the way the system interacts with one another.</p>
+        <p>In order to have accounts and protected information we needed a Web Server. As such we have a Ruby on Rails Web Server which uses a MariaDB database to manage user accounts.</p>
+        <p>The Web Server also handles the meeting information including any files uploaded to be displayed in a meeting</p>
+        <p>The File Server is used to make those uploaded files available for download to the VRMeeting clients during a meeting and so must currently run on the same machine as the Web Server as it does not yet have the ability to fetch remote resources</p>
+        <p>The Web Server and File Server together make up the Data Server</p>
+        <h4>The App</h4>
+        <p>The Android App consists of two key components:</p>
+        <ul>
+            <li>Android App</li>
+            <li>Unity App</li>
+        </ul>
+        <p>The Android App consists of the menu system used by the user to interact with the Web Server. This includes account creation, logging-in, creating and joining a meeting</p>
+        <p>When you join a meeting, the Android App will launch the Unity App which was developed, as the name would suggest, in Unity.</p>
+        <p>The Unity App communicates with the Host Server in order to coordinate what appears to be a meeting. If the user is presenting then the Unity app will stream audio to the host server while also sending any commands such as "change to slide 3 in the presentation"</p>
+        <p>If the user is a participant, they are unable to change slides and can only listen to the audio streamed to them from the presenter, and view the presentation slides as they appear on the VR screen</p>
+        <p>In order to try and optimise the audio transmission we make use of the zLip library integrated into Java.</p>
+        <h4>The Host Server</h4>
+        <p>The host server acts as an intermediate for two or more VRMeeting clients that are in a meeting. We have created our own protocol and encoding for Messages that are sent to and from the server in order to convey information about the meeting</p>
+        <p>The host server authenticates users using the Web Server and then performs different tasks based on events that are generated when a client sends a specific message to the server</p>
+    </body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <title>VRMeeting User Manual</title>
+    <body>
+        <h1><a name="Top"></a>VRMeeting - User Manual - <a href="../index.html">Return to Index</a></h1>
+        <hr>
+        <p>This User Manaul will show how to use the VRMeeting App</p>
+        <p>If you're looking for how to install the VRMeeting app on your phone you'll want to head over to the <a href="installapp.html">Installation Guide for the Android App</a></p>
+        <p>Don't forget before you can use the app you'll need to configure it. You can find out how to do that <a href="installapp.html#configureapp">Here</a></p>
+        <hr>
+        <h2>Features</h2>
+        <ul>
+            <li>Account Creation</li>
+            <li>User Authentication (Logging in)</li>
+            <li>Password Resetting</li>
+            <li>Creating a Meeting</li>
+            <li>Joining a Meeting</li>
+            <li>Custom Navigateable Meeting Presentation Slides</li>
+            <li>Continuos Presenter to Participant Voice Transmission</li>
+            <li>Leaving a meeting</li>
+        </ul>
+        <hr>
+        <h2>Manual</h2>
+        <hr>
+        <h3>Contents</h3>
+        <ol>
+            <li><a href="#accountcreate">Creating an Account</a></li>
+            <li><a href=#login>Logging In</a></li>
+            <li><a href="#forgotyourpassword">How to reset your password</a></li>
+            <li><a href="#createmeeting">How to create a meeting</a></li>
+            <li><a href="#joiningmeeting">How to join a meeting</a></li>
+            <li><a href="#vrinterface">Inside of the Virtual Space and how to navigate it</a>
+                <ul>
+                    <li><a href="#meetingslides">Changing Presentation Slides</a></li>
+                    <li><a href="#leavemeeting">Leaving a meeting</a></li>
+                    <li><a href="#meetinginfo">Viewing information about the meeting</a></li>
+                </ul>
+            </li>
+            <li><a href="#audiotrans">Sending your voice to your audience</a></li>
+        </ol>
+        <hr>
+        <h3><a name="accountcreate">Creating an Account</a> - <a href="#Top">Back to top</a></h3>
+        <h4>Step 1:</h4>
+        <p>In order to create an account you need to first opent the app and click on the button at the top labelled <b>Create Account</b></p>
+        <img src="../images/usermanual/mainmenu.png" width=300 height=500>
+        <h4>Step 2:</h4>
+        <p>Next you'll need to fill in the details shown to you on the screen.</p
+        <p><b>Note:</b> The Work Email and Work Phone fields are optional</p>
+        <p><b>Note:</b> The password must contain at least <b>8</b> characters, <b>1</b> of which is a number</p>
+        <img src="../images/usermanual/createaccount1.png" width=300 height=500>
+        <h4>Step 3:</h4>
+        <p>Once you've filled in the details on the page press the <b>Next Page</b> button at the bottom of the screen. If you've incorrectly filled in any fields you will be prompted to correct them</p>
+        <h4>Step 4:</h4>
+        <p>Next you'll need to select an avatar to represent you. You can do this one of two ways:</p>
+        <h4>Manually select an avatar</h4>
+        <p>You can select one manually by swiping left or right over the image of a person:</p>
+        <img src="../images/usermanual/avatarselect1.png" width=300 height=500>
+        <h4>Step 5:</h4>
+        <p>You'll need to choose and answer 3 security questions that will be used to help you reset your password in the event that you forget it</p>
+        <img src="../images/usermanual/securityquestions.png" width=300 height=500>
+        <p>Once you've finished you need to just press the <b>Finish</b> button and assuming the Web Server and App have been configured correctly, you'll be returned to the main menu and your account will now be ready to be used</p>
+        <h2>Note: Currently there exists a bug where the Web Server takes too long to create the account and respond so the client treats this as a timeout and states an error has occurred<br>If you receive a message that you need to check your connection, return to the main menu and attempt to login into your account as it may have been created still</h2>
+        <hr>
+        <h3><a name="login">Logging in</a> - <a href="#Top">Back to top</a></h3>
+        <p>To login to the App, simply enter the email address and password for your account in to the text boxes on the opening-page and press <b>Login</b></p>
+        <img src="../images/usermanual/login.png" width=300 height=500>
+        <p>If you select <i>Remember Me?</i> then you will not have to enter your credentials again until you logout of the app. Otherwise, you will be re-prompted for your login credentials every so often if you close the app down</p>
+        <hr>
+        <h3><a name="forgotyourpassword">What to do if you forget your password</a> - <a href="#Top">Back to top</a></h3>
+        <p>If you forget your password then you can press the <b>Forgot Password?</b> link at the bottom of the opening page</p>
+        <p>This will take you to a page where you will be requested to enter the email address of the account you are trying to log into</p>
+        <img src="../images/usermanual/forgotpass2.png" width=300 height=500>
+        <p>Simply enter your email address and you will then be required to answer your 3 security questions you setup when you created the account</p>
+        <img src="../images/usermanual/forgotpass3.png" width=300 height=500>
+        <p>If you answer all 3 questions correctly then you will be given the opportunity to change your password.</p>
+        <p><b>Note:</b> Your new password must be at least <b>8</b> characters long with at least <b>1</b> character being a number</p>
+        <hr>
+        <h3><a name="createmeeting">Creating a meeting - <a href="#Top">Back to top</a></a></h3>
+        <p>To create a meeting you'll need to first <a href="#login">Login</a> to the app and then press the <b>Create Meeting</b> button on the main menu</p>
+        <p>Here you'll need to enter the:</p>
+        <ul>
+            <li>Meeting Name</li>
+            <li>Meeting Description</li>
+            <li><i>Optionally:</i> Upload a presentation in PDF format - These will be displayed in the VR Meeting</li>
+        </ul>
+        <img src="../images/usermanual/createmeeting2.png" width=300 height=500>
+        <p>If you choose to upload a PDF please bare in mind that the file will take a minute to upload</p>
+        <p>When you press <b>Next</b> your meeting will be created and you'll be returned to the Main Menu. Your meeting code will be placed into your clip board along with the meeting description so you can send it straight to your participants</p>
+        <img src="../images/usermanual/createmeeting3.png" width=300 height=500>
+        <img src="../images/usermanual/createmeeting4.png" width=300 height=500>
+        <p>Here I've pasted the meeting information from the clip-board into the create a meeting page just to show what an example message would look like</p>
+        <hr>
+        <h3><a name="joiningmeeting">Joining a Meeting - <a href="#Top">Back to top</a></a></h3>
+        <p>In order to join a meeting you'll first need a <b>Meeting Code</b>. This can be obtained in one of two ways:</p>
+        <ol>
+            <li>Create a meeting - The meeting code will be copied into your clip board which you can then paste into the meeting code bar and delete the extra information</li>
+            <img src="../images/usermanual/joinmeeting1.png" width=300 height=500>
+            <img src="../images/usermanual/joinmeeting2.png" width=300 height=500>
+            <li>Receive a meeting code - Someone who has created a meeting will have a message they can send you which will contain the meeting code of their meeting</li>
+        </ol>
+        <p>Once you've got a meeting code you'll want to enter it into the <i>Meeting Code</i> field on the main home screen and press <i>Join Meeting</i></p>
+        <p>This should launch the Unity app, displaying a Unity splash and a connection to the <a href="overview.html">Host Server</a> will be made</p>
+        <img src="../images/usermanual/joinmeeting5.png" width=500 height=300>
+        </im>
+        <hr>
+        <h3><a name="vrinterface">Inside of the Virtual Space and how to navigate it</a> - <a href="#Top">Back to top</a></h3>
+        <p>Below you'll find diagrams that are labelled to illustrate the features to expect in the Virtual Environment</p>
+        <p>You can look around the environment by moving your head</p>
+        <img src="../images/usermanual/vr1.png" width=1000 height=500>
+        <img src="../images/usermanual/vr2.png" width=1000 height=500>
+        <!-- <ul>
+            <li>Presentation Board - Where presentation slides will be displayed as the presenter navigates through them</li>
+            <li>Next Button &amp Previous Buttons - If you are a presenter then you will have buttons that you can use to navigate through your presentation. Changes to your slide show are reflected on the Presentation Board of participants</li>
+            <li>Meeting Information - Displays your Current Presentation Slide Number and the name of the person presenting</li>
+            <li>Leave Button - When you look at this button for long enough you will leave the meeting</li>
+        </ul> -->
+        <h4><a name="meetingslides">Changing slides during a meeting</a></h4>
+        <p>Looking at the Navigation buttons for a breif moment will cause them to change the current presentation slide you are on. The button will briefly pulse to indicate that it has been triggered</p>
+        <p>If you continue to look at the button it will continuously change slides in <b>1</b> second intervals until you look away</p>
+        <p>Please be patient with slide changes as it may not be instantaneous</p>
+        <img src="../images/usermanual/mainscreen1.PNG" width=1000 height=500>
+        <h4><a name="leavemeeting">Leaving a meeting</a></h4>
+        <p>If you would like to leave the meeting you are currently in then you can look at the <i>Leave</i> button situated on the desk infront of you.</p>
+        <p>When looked at the button will count down from <b>5</b>. When it reaches <b>0</b> you will be returned to the main menu</p>
+        <img src="../images/usermanual/leavebutton1.png" width=1000 height=500>
+        <img src="../images/usermanual/leavebutton2.PNG" width=1000 height=500>
+        <hr>
+        <h4><a name="meetinginfo">Meeting Info</a></h4>
+        <p>You can view information about the meeting by looking diagonally down infront of you. This will display the current presentation slide as well as the name of the user presenting the meeting</p>
+        <img src="../images/usermanual/meetinginfo1.PNG" width=1000 height=500>
+        <h3><a name="audiotrans">Speaking with your Audience - <a href="#Top">Back to top</a></a></h3>
+        <p>If you are the presenter of a meeting <i>(if you are the one who created it)</i> then audio transmission will automatically be enabled. This means that your voice will be transmitted to all participants in the meeting with a short delay. This will then play out of the participant devices</p>
+        <p>Currently there is a <b>15</b> second delay on audio transmission</p>
+        <hr>
+    </body>
+</html>

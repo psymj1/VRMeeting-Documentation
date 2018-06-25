@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <title>VRMeeting Installation</title>
+    <body>
+        <h1>VRMeeting - Host Server - <a href="installguide.html">Return to Installation Guide</a></h1>
+        <hr>
+        <h2>NOTE: The Host Server is written in Java</h2>
+        <hr>
+        <h3>Step 1: Install Java</h3>
+        <p>In order to run the VRMeeting Host Server you'll need to first install Java version <b>1.8.0_111</b> or later.</p>
+        <p>You can check your Java version using the command: <code>java -version</code></p>
+        <hr>
+        <h3>Step 2: Obtaining the Host Server files</h3>
+        <p>If you haven't already then you'll need to pull down the latest distribution version of VRMeeting from <a href="https://github.com/psymj1/VRMeeting-Distributions">The Distribution Repository</a>, This contains the files for the Host Server</p>
+        <hr>
+        <h3>Step 3: Configuring the properties file</h3>
+        <p>In order to use the Host Server you'll need to set the port it will listen on and configure it to be able to communicate with the <a href="installweb.html">Web Server</a> for user authentication</p>
+        <p>Navigate to the <i>/VRMeeting-Host-Server</i> folder in the distribution you've downloaded and you should find a file called <code>properties.txt</code></p>
+        <p>Inside of <code>properties.txt</code> you'll need to set the port the HostServer will listen on by changing the value of the <b>ListenOnPort</b> property.</p>
+        <p>You'll also need to set the property <b>WebServerURL</b> to the URL of the <a href="installweb.html">Web Server</a>. This is usually in the form of an IP Address and Port Number combination: <code>ipaddress:port</code> or a domain name</p>
+        <h3>If you don't have a <code>properties.txt</code> file</h3>
+        <p>If there is not a file called <code>properties.txt</code> in the directory <i>/VRMeeting-Host-Server</i> then you'll need to replace it.</p>
+        <p>You can download the <a href="../files/properties.txt">Default Host Server Properties File</a> by right-clicking on the link and clicking <i>Save Link As...</i> and putting this file in the same folder as the <code>VRMeeting-Host-Server.jar</code></p>
+        <hr>
+        <h3>Step 4: Configuring Firewalls</h3>
+        <p>You'll need to make sure that the machine the Host-Server allows TCP connections on the port you've configured it to in the <code>properties.txt</code> file in the previous step</p>
+        <hr>
+        <h3>Step 5: Running the Server</h3>
+        <p>To run the server you need to be in the <i>/VRMeeting-Host-Server</i> directory and execute the following command: <code>java -Xmx2048M -Xms2048M -jar vrmeeting-host-server.jar </code></p>
+        <p>When you first go to run the server you'll find you'll be prompted to agree to a disclaimer that the project is not suitable for production environments:</p>
+        <img src="../images/warning.png">
+        <p>In order to use the server you must agree to this disclaimer by typing the word '<code>agree</code>' into the console and press enter:</p>     
+        <img src="../images/warningagree.PNG">
+        <hr>
+        <h4>Note: Error in first run</h4>
+        <p>If you encounter the following error when you attempt to run the Host-Server for the first time:</p>
+        <img src="../images/failconnect.PNG">
+        <p>It means the Host-Server could not connect to the Web Server. If this is the case then you'll need to check you entered the correct URL for the Web Server in <b>Step 3</b></p>
+        <p>If you still receive this error then you'll need to make sure the Web Server has been properly installed using the <a href="installweb.html">Installation Guide</a></p>
+        <hr>
+        <h3>Step 6: Finishing the Web Server Installation</h3>
+        <p>In order for the Web Server to be complete, it needs to know the location of the Host Server.</p>
+        <p>As such, you'll need to make a note of the IP Address or name, and port for the machine that the Host Server is running on and then refer to the <a href="installweb.html">Web Server Installation Guide</a> <b>Step 10</b> to know what to do with them</p>
+        <hr>
+        <h3>Step : Finished!</h3>
+        <p>The installation should now be complete.</p>
+        <h2>If you have any problems installing the Host Server feel free to <a href="contact.html">Contact us</a>.</h2>
+        <hr>
+        <h2>Common Problems when attempting to run the jar</h2>
+        <h3>Listening port already in use</h3>
+        <p>If you see the following output then you'll need to change the port that you're passing into the runtime arguments as the port is already being used by another program.</p>
+        <p>If you've previously used the VRMeeting_Host_Server on the same port then you'll want to double check that you haven't left it running by accident.</p><br>
+            
+            >\VRMeeting_Host_Server\target> java -jar vrmeeting.jar 25560 http://localhost:25560 <br>
+            INFO <Thu May 17 11:44:35 BST 2018> (Host Server Thread) Initialising server... <br>
+            INFO <Thu May 17 11:44:35 BST 2018> (Host Server Thread) Attempting to start host server listening on port 25560 <br>
+            Host Server will connect to the web server located at http://localhost:25560 <br>
+            INFO <Thu May 17 11:44:36 BST 2018> (TCP Connection Acceptor) Starting... <br>
+            ERROR <Thu May 17 11:44:36 BST 2018> (TCP Connection Acceptor) Address already in use: JVM_Bind <br>
+            [Ljava.lang.StackTraceElement;@4fca772d <br>
+            Exception in thread "main" main.java.com.hexcore.vrmeeting_hostserver.exception.StartupException: Error starting TCPConnectionAcceptor, see logs for details <br>
+                    at main.java.com.hexcore.vrmeeting_hostserver.connection.acceptor.TCPConnectionAcceptor.startUp(TCPConnectionAcceptor.java:101) <br>
+                    at main.java.com.hexcore.vrmeeting_hostserver.ServerComponent.start(ServerComponent.java:43) <br>
+                    at main.java.com.hexcore.vrmeeting_hostserver.HostServer.startUp(HostServer.java:162) <br>
+                    at main.java.com.hexcore.vrmeeting_hostserver.ServerComponent.start(ServerComponent.java:43) <br>
+                    at main.java.com.hexcore.vrmeeting_hostserver.HostServer.main(HostServer.java:59) <br></p>
+        <h3>Web Server Unavailable</h3>
+        <p>If you see the following output then the VRMeeting_Server Web Server is unavailable to the Host Server. This could be because:</p>
+        <ul>
+            <li>You haven't got the web server running</li>
+            <li>You haven't entered the address of the web server correctly</li>
+            <li>You haven't installed the Web Server in which case you'll need to following the instructions found in the <a href="installweb.html">Web Server Installation Guide</a></li>
+            <li>Your firewall could be blocking the connection</li>
+            <li>The Web Server is hosted on a separate network and that network's port has not been forwarded for TCP</li>
+        </ul>
+            <p>\VRMeeting_Host_Server\target>java -jar vrmeeting.jar 25565 http://localhost:25560 <br>
+            INFO <Thu May 17 11:48:19 BST 2018> (Host Server Thread) Initialising server... <br>
+            INFO <Thu May 17 11:48:19 BST 2018> (Host Server Thread) Attempting to start host server listening on port 25565 <br>
+            Host Server will connect to the web server located at http://localhost:25560 <br>
+            IGNORE <Thu May 17 11:48:20 BST 2018> (WebServerConnector to http://localhost:25560) Connection refused: connect <br>
+            ERROR <Thu May 17 11:48:20 BST 2018> (Host Server Thread) Cannot connect to the Web Server at http://localhost:25560 are you sure it's installed and running? Check the Instructions.md for more details <br></p>
+        <h1><a href="installguide.html">Return to Installation Guide</a></h1>
+    </body>
+</html>

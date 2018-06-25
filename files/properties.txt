@@ -1,0 +1,2 @@
+ListenOnPort = 25566
+WebServerURL = 192.168.1.111

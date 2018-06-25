@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class SecurityQuestionsController - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="ApplicationController.html">ApplicationController</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-get_security_questions">#get_security_questions</a>
+    
+    <li ><a href="#method-i-validate_security_answers">#validate_security_answers</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-SecurityQuestionsController">
+  <h1 id="class-SecurityQuestionsController" class="class">
+    class SecurityQuestionsController
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-get_security_questions" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_security_questions</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <h1 id="method-i-get_security_questions-label-GET+-2Fsecurityquestions">GET /securityquestions<span><a href="#method-i-get_security_questions-label-GET+-2Fsecurityquestions">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>Retrieves the 3 security questions for a user associated with a given email
+address</p>
+
+<h3 id="method-i-get_security_questions-label-Errors-3A">Errors:<span><a href="#method-i-get_security_questions-label-Errors-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>400 Email parameter is missing</p>
+</li><li>
+<p>404 <a href="User.html">User</a> doesn&#39;t exist with the given email in
+the database</p>
+</li></ul>
+
+<h3 id="method-i-get_security_questions-label-Params-3A">Params:<span><a href="#method-i-get_security_questions-label-Params-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>email</p>
+
+<pre>Must be a string and a valid email that exists in the database</pre>
+</li></ul>
+
+<h3 id="method-i-get_security_questions-label-If+Successful">If Successful<span><a href="#method-i-get_security_questions-label-If+Successful">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Response Code</p>
+
+<pre class="ruby"><span class="ruby-value">200</span>
+</pre>
+</li></ul>
+
+<h4 id="method-i-get_security_questions-label-Returns+in+JSON+Format">Returns in JSON Format<span><a href="#method-i-get_security_questions-label-Returns+in+JSON+Format">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>question1</p>
+
+<pre class="ruby"><span class="ruby-constant">A</span> <span class="ruby-identifier">string</span> <span class="ruby-identifier">containing</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">first</span> <span class="ruby-identifier">question</span> <span class="ruby-identifier">registered</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">user</span>
+</pre>
+</li><li>
+<p>question2</p>
+
+<pre class="ruby"><span class="ruby-constant">A</span> <span class="ruby-identifier">string</span> <span class="ruby-identifier">containing</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">second</span> <span class="ruby-identifier">question</span> <span class="ruby-identifier">registered</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">user</span>
+</pre>
+</li><li>
+<p>question3</p>
+
+<pre class="ruby"><span class="ruby-constant">A</span> <span class="ruby-identifier">string</span> <span class="ruby-identifier">containign</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">third</span> <span class="ruby-identifier">question</span> <span class="ruby-identifier">registered</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">user</span>
+</pre>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="get_security_questions-source">
+            <pre><span class="ruby-comment"># File app/controllers/security_questions_controller.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_security_questions</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-string">&quot;email&quot;</span>)
+        <span class="ruby-identifier">sentEmail</span> = <span class="ruby-identifier">params</span>[<span class="ruby-string">&quot;email&quot;</span>]
+        <span class="ruby-keyword">if</span> <span class="ruby-constant">User</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-value">:email</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">sentEmail</span>)
+            <span class="ruby-identifier">userID</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by_Email</span>(<span class="ruby-identifier">sentEmail</span>)[<span class="ruby-string">&quot;Uid&quot;</span>]
+            <span class="ruby-identifier">userFile</span> = <span class="ruby-constant">UserFile</span>.<span class="ruby-identifier">find_by_Uid</span>(<span class="ruby-identifier">userID</span>)
+            <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">question1</span><span class="ruby-value">:userFile</span>[<span class="ruby-string">&quot;Question1&quot;</span>],<span class="ruby-identifier">question2</span><span class="ruby-value">:userFile</span>[<span class="ruby-string">&quot;Question2&quot;</span>],<span class="ruby-identifier">question3</span><span class="ruby-value">:userFile</span>[<span class="ruby-string">&quot;Question3&quot;</span>]}, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">200</span>
+        <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> { <span class="ruby-identifier">error</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;User not found&quot;</span>}, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">404</span>
+        <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> { <span class="ruby-identifier">error</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Missing parameter &#39;email&#39;&quot;</span>}, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:bad_request</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-validate_security_answers" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">validate_security_answers</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <h1 id="method-i-validate_security_answers-label-POST+-2Fsecurityquestions">POST /securityquestions<span><a href="#method-i-validate_security_answers-label-POST+-2Fsecurityquestions">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>Takes the 3 security answers for a user and compares them against those in
+the database, setting their password to the new password if the answers are
+correct</p>
+
+<h3 id="method-i-validate_security_answers-label-Errors-3A">Errors:<span><a href="#method-i-validate_security_answers-label-Errors-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>400 Email parameter is missing</p>
+</li><li>
+<p>400 Answer 1 parameter is missing</p>
+</li><li>
+<p>400 Answer 2 parameter is missing</p>
+</li><li>
+<p>400 Answer 3 parameter is missing</p>
+</li><li>
+<p>400 New Password parameter is missing</p>
+</li><li>
+<p>400 Password Check parameter is missing</p>
+</li><li>
+<p>400 New Password and Password Check do not match</p>
+</li><li>
+<p>400 Password is an invalid format (does not meet the minimum password
+requirements)</p>
+</li><li>
+<p>404 <a href="User.html">User</a> doesn&#39;t exist with the given email in
+the database</p>
+</li><li>
+<p>401 One or more of the answers do not match those in the database</p>
+</li></ul>
+
+<h3 id="method-i-validate_security_answers-label-Params-3A">Params:<span><a href="#method-i-validate_security_answers-label-Params-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>email</p>
+
+<pre>Must be a string and a valid email that exists in the database</pre>
+</li><li>
+<p>answer1</p>
+
+<pre class="ruby"><span class="ruby-constant">Must</span> <span class="ruby-identifier">be</span> <span class="ruby-identifier">a</span> <span class="ruby-identifier">string</span>
+</pre>
+</li><li>
+<p>answer2</p>
+
+<pre class="ruby"><span class="ruby-constant">Must</span> <span class="ruby-identifier">be</span> <span class="ruby-identifier">a</span> <span class="ruby-identifier">string</span>
+</pre>
+</li><li>
+<p>answer3</p>
+
+<pre class="ruby"><span class="ruby-constant">Must</span> <span class="ruby-identifier">be</span> <span class="ruby-identifier">a</span> <span class="ruby-identifier">string</span>
+</pre>
+</li><li>
+<p>newpassword</p>
+
+<pre>Must be a string that obeys the agreed password validation (At least 1 number and at least 8 characters long and at most 64)</pre>
+</li><li>
+<p>passwordcheck</p>
+
+<pre class="ruby"><span class="ruby-constant">Must</span> <span class="ruby-identifier">be</span> <span class="ruby-identifier">a</span> <span class="ruby-identifier">string</span> <span class="ruby-identifier">that</span> <span class="ruby-identifier">matches</span> <span class="ruby-identifier">newpassword</span>
+</pre>
+</li></ul>
+
+<h3 id="method-i-validate_security_answers-label-If+Successful">If Successful<span><a href="#method-i-validate_security_answers-label-If+Successful">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Response Code</p>
+
+<pre class="ruby"><span class="ruby-value">200</span>
+</pre>
+</li></ul>
+
+<h4 id="method-i-validate_security_answers-label-Returns+in+JSON+Format">Returns in JSON Format<span><a href="#method-i-validate_security_answers-label-Returns+in+JSON+Format">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Nothing</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="validate_security_answers-source">
+            <pre><span class="ruby-comment"># File app/controllers/security_questions_controller.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">validate_security_answers</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-string">&quot;email&quot;</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-string">&quot;answer1&quot;</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-string">&quot;answer2&quot;</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-string">&quot;answer3&quot;</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-string">&quot;newpassword&quot;</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-string">&quot;passwordcheck&quot;</span>)
+        <span class="ruby-keyword">if</span> <span class="ruby-constant">User</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-value">:email</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-string">&quot;email&quot;</span>])
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-string">&quot;newpassword&quot;</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">params</span>[<span class="ruby-string">&quot;passwordcheck&quot;</span>]
+                <span class="ruby-identifier">user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by_Email</span>(<span class="ruby-identifier">params</span>[<span class="ruby-string">&quot;email&quot;</span>])
+                <span class="ruby-identifier">userFile</span> = <span class="ruby-constant">UserFile</span>.<span class="ruby-identifier">find_by_Uid</span>(<span class="ruby-identifier">user</span>[<span class="ruby-string">&quot;Uid&quot;</span>])
+               
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">userFile</span>[<span class="ruby-string">&quot;Answer1&quot;</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">params</span>[<span class="ruby-string">&quot;answer1&quot;</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">userFile</span>[<span class="ruby-string">&quot;Answer2&quot;</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">params</span>[<span class="ruby-string">&quot;answer2&quot;</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">userFile</span>[<span class="ruby-string">&quot;Answer3&quot;</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">params</span>[<span class="ruby-string">&quot;answer3&quot;</span>]
+                    <span class="ruby-keyword">if</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">update</span>(<span class="ruby-value">:password</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-string">&quot;newpassword&quot;</span>]) 
+                        <span class="ruby-identifier">render</span> <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">200</span>
+                    <span class="ruby-keyword">else</span>
+                        <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">error</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Password is invalid&quot;</span>}, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">400</span>
+                    <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">else</span>
+                    <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">error</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;One or more of the answers are incorrect&quot;</span>}, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">401</span>
+                <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">else</span>
+                <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> { <span class="ruby-identifier">error</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Passwords do not match&quot;</span>}, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:bad_request</span>
+            <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">error</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;User doesn&#39;t exist&quot;</span>}, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">404</span>
+        <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">error</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Missing parameters&quot;</span>}, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:bad_request</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <title>VRMeeting Installation</title>
+    <body>
+        <h1>VRMeeting - Web Server &amp File Server Installation - <a href="installguide.html">Return to Installation Guide</a></h1>
+        <hr>
+        <h2>NOTE: The Web Server will only run on <b>Windows</b></h2>
+        <h2>NOTE: The Web Server is writen using Ruby on Rails framework.</h2>
+        <hr>
+        <h3>Step 1: Install Ruby and Ruby on Rails</h3>
+        <h4>Ruby and Ruby On Rails</h4>
+        <p>We've had a lot of issues trying to install ruby and rails on a windows system manually and as such have found the <a href="http://railsinstaller.org/en">Rails Installer</a> to be particularly useful. It's a simple to run installer that once run will install both Ruby, its dependencies and rails on the system.</p>
+        <p>We've used the Rails Installer for <b>Ruby 2.2.6</b> and <b>Rails 5.0</b> on our windows server.
+        <p>Below we've included a set of generic instructions for checking your installations of ruby and rails</p>
+        <h4>Ruby</h4>
+        <p>You'll need to install ruby version <b>2.2.6</b>. The server may run on later version but we haven't tested this. You can find a guide on how to install ruby <a href="https://www.ruby-lang.org/en/downloads/" target="_blank">here</a></p>
+        <p>You can check if ruby has installed correctly by executing the command: <code>ruby -v</code>. <br>If ruby is installed correctly then the output should be the current version of ruby you have installed</p>
+        <p>Note: Make sure that Gem has also been installed correctly by executing the command: <code>gem -v</code></p>
+        <h4>Rails</h4>
+        <p>The Web Server runs in the Ruby on Rails framework version <b>5.0.0.1</b>. The server may run on later versions but we haven't tested this. You can find a guide on how to install rails <a href="http://guides.rubyonrails.org/getting_started.html#installing-rails" target="_blank">here</a></p>
+        <p> You can check if rails has installed correctly by executing the command: <code>rails --version</code>. If rails is installed correctly then the output should be the current version of rails you installed</p>
+        <hr>
+        <h3>Step 2: Install MariaDB</h3>
+        <p>The database used by VRMeeting is MariaDB. You'll need to install MariaDB version <b>10.2 or later</b>. You can find a guide on how to install the latest version of MariaDB <a href="https://www.tutorialspoint.com/mariadb/mariadb_installation.htm" target="_blank">here</a></p>
+        <hr>
+        <h3>Step 3: Obtaining the Web Server Files</h3>
+        <p>If you haven't already then you'll need to pull down the latest distribution version of VRMeeting from <a href="https://github.com/psymj1/VRMeeting-Distributions">The Distribution Repository</a>, this contains the files for the Web Server in the folder <i>/VRMeeting-Web-Server</i></p>
+        <hr>
+        <h3>Step 4: Install Gem Dependencies</h3>
+        <p>You'll need to navigate into the new VRMeeting_Server directory and execute the following commands:</p>
+        <ol>
+            <li><code>gem install bundle</code></li>
+            <li><code>gem install mysql2</code></li>
+            <li><code>bundle install</code></li>
+        </ol>
+        <hr>
+        <h3>Step 5: Configure the Web Server Database Config</h3>
+        <p>You'll need to find the file <i>database.yml</i> located in the directory <i>/config</i> and open it in any text editor. It should look like this:</p>
+        <img src="../images/databaseymlexample.png">
+        <p>You need to change the username and password to be that the user for your MariaDB installation so that rails can use it as its database</p>
+        <p>You'll also need to update the host property if your database is not hosted on the same machine as the web server.</p>
+        <p>Note: If the database is located on a separate host then you may need to configure your firewall so the web server can communicate with it</p>
+        <hr>
+        <h3>Step 6: Configuring the Database</h3>
+        <p>Still inside of the <i>VRMeeting_Server</i> directory, execute the following command: <code>rails db:setup</code></p>
+        <p>This will connect to the database and automatically, using the settings in the <i>database.yml</i> config file, setup the required tables</p>
+        <hr>
+        <h3>Step 7: Installing Dependencies</h3>
+        <p>The VRMeeting Web Server makes use of a 3rd Party Tool <a href="https://www.imagemagick.org/script/index.php">Image Magick</a> which you will require in order for VRMeeting to function.</p>
+        <p>Follow the installation instructions found <a href="https://www.imagemagick.org/script/download.php">here</a> before continuing</p>
+        <hr>
+        <h3>Step 8: The File Server</h3>
+        <p>The File Server is included in the folder containing the web server</p>
+        <p>In order to run it, navigate to the main <i>VRMeeting_Server</i> directory and execute the command: <code>fileserver</code></p>
+        <hr>
+        <h3>Step 9: Configuring any firewalls and ports</h3>
+        <p>Our Rails server is configured by default to listen for HTTP requests on port <b>25560</b>. You can change this by navigating to <i>/config</i> and opening the <i>puma.rb</i> file which should look similar to below:</p>
+        <img src="../images/pumarb.PNG">
+        <h4>Rails Server</h4>
+        <p>To change the port the Rails server listens on just modify the port number inside of the <b>{}</b> in the line: <code>port        ENV.fetch("PORT") { 25560 }</code></p>
+        <p>Remember to configure any firewalls necessary to allow TCP connections on the port the Rails server is configured to listen on</p>
+        <h4>MariaDB</h4>
+        <p>Note: You'll also need to allow connections to the MariaDB database if they are blocked</p>
+        <h4>FileServer</h4>
+        <p>The File Server defaults to run on port <b>8080</b> using TCP and currently is not configurable</p>
+        <hr>
+        <h3>Step 10: Configuring the locations of the File Server and Host Server</h3>
+        <p>When users attempt to join a meeting, they will retrieve the meeting information from the server. This includes the location the Host Server is running on and the location of the file server to download files from</p>
+        <p>You'll need to navigate to the directory <code>/VRMeeting-Server/app/controllers</code> and open the file <code>meetings_controller.rb</code> and find the following lines:</p>
+        <img src="../images/config-serverlocations.PNG">
+        <p>The parameter names refer to the following:</p>
+        <ul>
+            <li><b>hIP</b> - HostServer IP Address or Domain Name</li>
+            <li><b>hPort</b> - Host Server Port Number</li>
+            <li><b>fIP</b> - File Server IP Address</li>
+            <li><b>fPort</b> - You cannot change this value without breaking the server at this moment in time</li>
+        </ul>
+        <p>You need to modify the parameters accordingly. If you haven't installed the <a href="installhost.html">Host Server</a> yet then you can delay this step until afterwards</p>
+        <p>The IP Address or Domain Name for the File Server will be the same as the machine that is hosting the Web Server as the File Server and Web Server are installed to the same machine</p>
+        <hr>
+        <h3>Step 11: Generating Secrets</h3>
+        <p>First in the main directory execute the command <code>rails secret</code>. This will give you a very long string. You'll want to execute this command twice and keep the outputs somewhere safe</p>
+        <p>Now navigate to the <i>/config</i> folder and open <code>secrets.yml</code></p>
+        <p>You'll find 2 lines:</p>
+        <ul>
+            <li>development<ul>secret_key_base:</ul></li><br>
+            <li>test<br><ul>secret_key_base:</ul></li>
+        </ul>
+        <p>You'll want to take the 2 strings you generated earlier and place one infront of <i>secret_key_base:</i> for development and one infront of <i>secret_key_base</i> for test</p>
+        <hr>
+        <h3>Step : Finished!</h3>
+        <p>The installation should now be complete. Return to the root <i>VRMeeting_Server</i> folder and run the command: <code>rails server</code> to start the server</p>
+        <h2>If you have any problems installing the Web Server feel free to <a href="contact.html">Contact us</a>.</h2>
+        <h1><a href="installguide.html">Return to Installation Guide</a></h1>
+    </body>
+</html>
